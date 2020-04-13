@@ -52,8 +52,8 @@ module.exports.getProductById = async (req, res) => {
 
 module.exports.update = async (req, res) => {
   if (isAdminFunc(req.body.userId)) {
-    const { title, price, category, imgSrc, sizes, count } = req.body;
     try {
+      const { title, price, category, imgSrc, sizes, count } = req.body;
       let pretender = await Product.findById(req.params.id);
       if (pretender) {
         pretender.title = title;

@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 /* Import from locale files */
 const authRoutes = require("./routes/auth.routes");
 const productRoutes = require("./routes/product.routes");
+const orderRoutes = require("./routes/order.routes.js");
 const app = express();
 const keys = require("./keys");
 
@@ -21,5 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/product", productRoutes);
+app.use("/api/order", orderRoutes);
 
 module.exports = app;

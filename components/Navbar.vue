@@ -39,6 +39,9 @@
 					>Выйти</a>
 				</template>
 			</div>
+			<div class="mobile right menu">
+				<nuxt-link to="/">Hop</nuxt-link>
+			</div>
 		</nav>
 		<div
 			:class="notifyClass"
@@ -122,5 +125,16 @@ a:hover {
 .info {
 	background-color: #039be5;
 	color: #fff;
+}
+.mobile {
+	display: none;
+}
+@media (max-width: 575px) {
+	.right {
+		display: none;
+	}
+	.mobile {
+		display: block;
+	}
 }
 </style>

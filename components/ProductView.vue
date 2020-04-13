@@ -75,11 +75,11 @@ export default {
 		options: {
 			type: Array,
 			requried: true,
-    },
-    items: {
-      type: Array,
-      required: true,
-    }
+		},
+		items: {
+			type: Array,
+			required: true,
+		}
 	},
 	data: () => ({
 		selected: null,
@@ -104,20 +104,23 @@ export default {
 					message: "Для покупки товара необходимо авторизоваться",
 				});
 			} else {
-				this.product.sizes = this.selected
+				const product = { ...this.product };
+				product.sizes = this.selected
 				try {
-					this.product.count = 1;
-					await this.$store.dispatch("cart/addItem", this.product);
+					product.count = 1;
+					await this.$store.dispatch("cart/addItem", product);
 					await this.$store.dispatch("initNotify", {
 						type: "success",
 						message: "Товар успешно добавлен в корзину!",
 					});
-					console.log(this.$store.state.cart.cart);
 				} catch (error) {
 					console.log(error);
 				}
 			}
 		},
+	},
+	mounted () {
+		this.$store.dispatch('cart/initCart');
 	},
 	validate ({ params }) {
 		return !!params.id;

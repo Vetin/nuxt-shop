@@ -16,7 +16,7 @@ module.exports.login = async (req, res) => {
         const token = JWT.sign(
           {
             login: pretender.login,
-            userId: pretender._id,
+            userId: pretender._id
           },
           keys.JWT,
           { expiresIn: "10 years" }
@@ -45,7 +45,7 @@ module.exports.createUser = async (req, res) => {
           login,
           password,
           email,
-          phone,
+          phone
         });
         await user.save();
         res.status(201).json("Регистрация прошла успешно");
