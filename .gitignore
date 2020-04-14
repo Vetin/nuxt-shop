@@ -91,4 +91,3 @@ sw.*
 
 # Keys
 server/keys/keys.dev.js
-server/keys/keys.prod.js
