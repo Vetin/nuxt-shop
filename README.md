@@ -2,7 +2,7 @@
 
   UI: v-bootstrap
 
-  Backed: Express
+  Backend: Express
   
   Deployed Url: https://nuxt-shop.herokuapp.com/orders
 
