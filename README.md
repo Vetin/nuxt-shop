@@ -1,7 +1,5 @@
 # Shop
 
-## Info
-
   UI: v-bootstrap
 
   Backed: Express
