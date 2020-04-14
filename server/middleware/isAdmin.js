@@ -1,3 +1,3 @@
-const keys = require("../keys/keys.dev");
+const keys = require("../keys");
 
-module.exports = (id) => id == keys.ADMIN_ID;
+module.exports = id => id == keys.ADMIN_ID;
