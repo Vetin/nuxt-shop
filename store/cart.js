@@ -55,7 +55,7 @@ export default {
       await commit("changeCount", data);
       JsCookie.set("cart", state.cart);
     },
-    async clear({ commit }) {
+    async clear({ state, commit }) {
       await commit('clearCart');
       JsCookie.set("cart", state.cart);
     }

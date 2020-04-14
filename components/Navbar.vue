@@ -23,16 +23,29 @@
 					v-if="!isAuth"
 				>Войти</nuxt-link>
 				<template v-else>
-					<nuxt-link
-						v-if="!isAdmin"
-						to="/cart"
-						:class="$route.path === '/cart' ? 'active' : ''"
-					>Корзина</nuxt-link>
-					<nuxt-link
+					<template
+						name="admins-links"
+						v-if="isAdmin"
+					>
+						<nuxt-link
+							to="/add"
+							:class="$route.path === '/add' ? 'active' : ''"
+						>Добавить</nuxt-link>
+					</template>
+					<template
+						name="users-links"
 						v-else
-						to="/add"
-						:class="$route.path === '/add' ? 'active' : ''"
-					>Добавить</nuxt-link>
+					>
+						<nuxt-link
+							to="/cart"
+							:class="$route.path === '/cart' ? 'active' : ''"
+						>Корзина</nuxt-link>
+						<nuxt-link
+							to="/orders"
+							:class="$route.path === '/order' ? 'active' : ''"
+						>Заказы</nuxt-link>
+
+					</template>
 					<a
 						href="#"
 						@click.prevent="logoutHandler"

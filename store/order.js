@@ -36,7 +36,7 @@ export default {
     },
     async update({ dispatch }, { id, track }) {
       try {
-        await this.$axios.$put(`/api/order/update/${id}`, track);
+        await this.$axios.$put(`/api/order/update/${id}`, { track: track });
         await dispatch(
           "initNotify",
           { type: "success", message: "Заказ успешно обновлен" },

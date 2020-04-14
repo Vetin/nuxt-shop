@@ -119,7 +119,7 @@
 </template>
 
 <script>
-import { minLength, required, email, numeric } from "vuelidate/lib/validators";
+import { minLength, required, email, numeric, maxLength } from "vuelidate/lib/validators";
 
 export default {
 	inheritAttrs: false,
@@ -151,34 +151,6 @@ export default {
 		},
 	},
 	validations () {
-		// if (this.$attrs.type === "password") {
-		// 	return {
-		// 		input: {
-		// 			required,
-		// 			minLength: minLength(6),
-		// 		},
-		// 	};
-		// } else if (this.$attrs.type === "phone") {
-		// 	return {
-		// 		input: {
-		// 			required,
-		// 			minLength: minLength(11),
-		// 		},
-		// 	};
-		// } else if (this.$attrs.type === "email") {
-		// 	return {
-		// 		input: {
-		// 			required,
-		// 			email,
-		// 		},
-		// 	};
-		// } else {
-		// 	return {
-		// 		input: {
-		// 			required,
-		// 		},
-		// 	};
-		// }
 		switch (this.$attrs.type) {
 			case "password":
 				return {
@@ -193,6 +165,7 @@ export default {
 					input: {
 						required,
 						minLength: minLength(11),
+						maxLength: maxLength(11),
 					}
 				}
 				break;

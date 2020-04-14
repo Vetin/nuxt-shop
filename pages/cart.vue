@@ -152,17 +152,19 @@ export default {
 		async submitHandler () {
 			const isValid = Object.values(this.isValidForm).every(el => el === true);
 			if (isValid) {
-				const { address, flat, name, number } = this.form
+				const { address, flat, name, phone } = this.form
 				const userId = await this.$store.dispatch('auth/getId');
 				const data = {
 					products: this.cart,
 					price: this.fullPrice,
 					address: address.data.value,
+					flat,
 					name,
-					number,
+					phone,
 					userId,
 				}
 				const id = await this.$store.dispatch('order/create', data);
+				await this.$store.dispatch('cart/clear');
 				this.$router.push(`/complete/${id}`);
 			} else {
 				await this.$store.dispatch('initNotify', { type: 'error', message: 'Данные введены некорректно' });
